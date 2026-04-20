@@ -1453,6 +1453,11 @@
 
             .featured-side {
                 flex-direction: row;
+                gap: 20px;
+            }
+
+            .featured-side-card {
+                flex: 1;
             }
 
             .genre-grid {
@@ -1502,13 +1507,30 @@
             .hero-stats {
                 position: static;
                 display: flex;
-                justify-content: flex-start;
+                justify-content: center;
                 gap: 30px;
                 margin-top: 40px;
+                width: 100%;
             }
 
             .hero-content {
                 padding-bottom: 60px;
+                text-align: center;
+                align-items: center;
+            }
+
+            .hero-badge {
+                justify-content: center;
+            }
+
+            .hero-cta-row {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .search-wrap {
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
@@ -1525,26 +1547,54 @@
             }
 
             .hero h1 {
-                font-size: 58px;
+                font-size: 52px;
+                line-height: 1.1;
+            }
+
+            .hero-sub {
+                font-size: 15px;
             }
 
             .genre-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .featured-grid {
+                gap: 16px;
+            }
+
+            .featured-main {
+                height: 400px;
+            }
+
+            .featured-main-info h3 {
+                font-size: 28px;
+            }
+
             .featured-side {
                 flex-direction: column;
+                gap: 16px;
+            }
+
+            .featured-side-card {
+                height: 200px;
             }
 
             .section-header {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+                align-items: center;
+                text-align: center;
+                gap: 16px;
             }
 
             .footer-top {
                 grid-template-columns: 1fr;
                 gap: 32px;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto 16px;
             }
 
             .footer-bottom {
@@ -1564,16 +1614,40 @@
             .scroll-btn {
                 display: none;
             }
+
+            .scroll-row {
+                padding: 0 4%;
+                gap: 16px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .scroll-row::-webkit-scrollbar {
+                display: none;
+            }
+
+            .media-card {
+                flex: 0 0 160px;
+            }
+
+            .card-title {
+                font-size: 14px;
+            }
+
+            .card-meta {
+                font-size: 11px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 44px;
+                font-size: 42px;
             }
 
             .hero-cta-row {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 12px;
             }
 
             .btn-hero,
@@ -1583,7 +1657,22 @@
             }
 
             .genre-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stats {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .stat {
+                flex: 0 0 80px;
+            }
+
+            .cta-band-text h2 {
+                font-size: 32px;
             }
         }
 
