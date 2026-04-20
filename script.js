@@ -74,10 +74,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileClose = document.getElementById('mobileClose');
 
     if (menuToggle && mobileNav && mobileClose) {
-        menuToggle.addEventListener('click', () => mobileNav.classList.add('open'));
-        mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
+        mobileClose.addEventListener('click', closeMenu);
+
+        // Close menu when clicking on the background
+        mobileNav.addEventListener('click', (e) => {
+            if (e.target === mobileNav) {
+                closeMenu();
+            }
+        });
+        
         document.querySelectorAll('.mobile-nav a').forEach(a => {
-            a.addEventListener('click', () => mobileNav.classList.remove('open'));
+            a.addEventListener('click', closeMenu);
         });
     }
 

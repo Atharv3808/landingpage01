@@ -216,9 +216,16 @@
 
         .menu-toggle {
             display: none;
-            font-size: 22px;
+            font-size: 24px;
             cursor: pointer;
             color: var(--white);
+            padding: 8px;
+            margin-right: -8px;
+            z-index: 1001;
+        }
+
+        .menu-toggle i {
+            pointer-events: none;
         }
 
         /* ===========================
@@ -455,13 +462,13 @@
            AD CONTAINER
         =========================== */
         .ad-container {
-            width: 90%;
+            width: 92%;
             max-width: 1200px;
-            margin: 48px auto;
+            margin: 32px auto;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 18px 24px;
+            padding: 12px 16px;
             text-align: center;
             position: relative;
         }
@@ -1405,12 +1412,13 @@
             position: fixed;
             inset: 0;
             background: rgba(8, 8, 8, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 999;
+            backdrop-filter: blur(25px);
+            z-index: 2000;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 36px;
+            padding: 20px;
         }
 
         .mobile-nav.open {
@@ -1419,7 +1427,7 @@
 
         .mobile-nav a {
             font-family: var(--font-display);
-            font-size: 48px;
+            font-size: clamp(32px, 8vw, 48px);
             letter-spacing: 2px;
             color: var(--white);
             transition: color 0.3s;
@@ -1433,10 +1441,12 @@
             position: absolute;
             top: 24px;
             right: 6%;
-            font-size: 28px;
+            font-size: 32px;
             color: var(--gray);
             cursor: pointer;
             transition: color 0.3s;
+            padding: 10px;
+            z-index: 2001;
         }
 
         .mobile-close:hover {
@@ -1471,6 +1481,15 @@
         }
 
         @media (max-width: 900px) {
+            .hero-bg-reel {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-bg-reel .reel-col:nth-child(3),
+            .hero-bg-reel .reel-col:nth-child(4) {
+                display: none;
+            }
+
             .features-layout {
                 grid-template-columns: 1fr;
                 gap: 50px;
@@ -1498,6 +1517,7 @@
                 flex-direction: column;
                 text-align: center;
                 padding: 50px 32px;
+                margin: 0 4% 80px;
             }
 
             .cta-band-text p {
@@ -1514,9 +1534,10 @@
             }
 
             .hero-content {
-                padding-bottom: 60px;
+                padding: 0 4% 60px;
                 text-align: center;
                 align-items: center;
+                max-width: 100%;
             }
 
             .hero-badge {
@@ -1531,6 +1552,8 @@
             .search-wrap {
                 margin-left: auto;
                 margin-right: auto;
+                width: 100%;
+                max-width: 400px;
             }
         }
 
@@ -1547,16 +1570,19 @@
             }
 
             .hero h1 {
-                font-size: 52px;
+                font-size: clamp(42px, 10vw, 52px);
                 line-height: 1.1;
             }
 
             .hero-sub {
                 font-size: 15px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .genre-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
 
             .featured-grid {
@@ -1585,6 +1611,7 @@
                 align-items: center;
                 text-align: center;
                 gap: 16px;
+                margin-bottom: 32px;
             }
 
             .footer-top {
@@ -1638,16 +1665,21 @@
             .card-meta {
                 font-size: 11px;
             }
+
+            .trending, .featured, .genres, .why-section, .articles, .pricing {
+                padding: 60px 4%;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 42px;
+                font-size: clamp(36px, 12vw, 42px);
             }
 
             .hero-cta-row {
                 flex-direction: column;
                 gap: 12px;
+                width: 100%;
             }
 
             .btn-hero,
@@ -1669,10 +1701,23 @@
 
             .stat {
                 flex: 0 0 80px;
+                text-align: center;
             }
 
             .cta-band-text h2 {
                 font-size: 32px;
+            }
+
+            .features-right {
+                grid-template-columns: 1fr;
+            }
+
+            .plans-grid {
+                padding: 0;
+            }
+
+            .plan-card {
+                padding: 30px 24px;
             }
         }
 
